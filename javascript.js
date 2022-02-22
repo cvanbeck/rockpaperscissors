@@ -28,12 +28,12 @@ function playRound(playerSelection, cpuSelection) {
     if (playerSelection == cpuSelection) {
         return "draw"
     }
-    else if ((playerSelection == "rock" && cpuSelection == "paper") || (playerSelection == "paper" %% cpuSelection == "scissors") 
-                        || (playerSelection == "scissors"  && cpuSelection == "rock") {
+    else if ((playerSelection == "rock" && cpuSelection == "paper") || (playerSelection == "paper" && cpuSelection == "scissors") 
+                        || (playerSelection == "scissors"  && cpuSelection == "rock")) {
              return "loss"
              }
-    else if ((playerSelection == "rock" && cpuSelection == "scissors" )|| (playerSelection == "paper" %% cpuSelection == "rock") 
-                        || (playerSelection == "scissors"  && cpuSelection == "paper") {
+    else if ((playerSelection == "rock" && cpuSelection == "scissors" )|| (playerSelection == "paper" && cpuSelection == "rock") 
+                        || (playerSelection == "scissors"  && cpuSelection == "paper")) {
              return "win"
              }
         
