@@ -30,7 +30,7 @@ function playRound(playerSelection, cpuSelection) {
     }
     else if ((playerSelection == "rock" && cpuSelection == "paper") || (playerSelection == "paper" && cpuSelection == "scissors") 
                         || (playerSelection == "scissors"  && cpuSelection == "rock")) {
-             return "loss"
+             return "los"
              }
     else if ((playerSelection == "rock" && cpuSelection == "scissors" )|| (playerSelection == "paper" && cpuSelection == "rock") 
                         || (playerSelection == "scissors"  && cpuSelection == "paper")) {
@@ -41,20 +41,24 @@ function playRound(playerSelection, cpuSelection) {
 }
 
 function playFive() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5;) {
         let player = playerChoice();
         let computer = computerPlay();
         console.log(`You chose ${player}!`);
         console.log(`The computer chose ${computer}!`);
         let outcome = playRound(player, computer);
-        if (outcome == "win") {
-            console.log(`You win, ${player} beats ${computer}. `)
+        
+        if (outcome == "win" ){
+            console.log(`You win, ${player} beats ${computer}.`);
+            ++i
         }
-        else if (outcome == "loss") {
-            console.log(`You lose, ${computer} beats ${player}. `)
+        else if (outcome == "lose") {
+            console.log(`You lose, ${computer} beats ${player}.`);
+            ++i
         }
-        else if (outcome == "draw") {
-            console.log("It's a draw")
+        else {
+            console.log("It's a draw, play again.")
         }
+    
      }
 }
