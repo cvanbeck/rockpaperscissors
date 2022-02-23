@@ -1,0 +1,37 @@
+body {
+    background-color: #e76f51;
+    display: flex;
+    justify-content: center;
+}
+
+.rps-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-bot {
+    display: flex;
+}
+
+.choicebutton {
+    margin: 48px;
+}
+
+button.choice {
+    background: none;
+    border: none;
+    padding: 0;
+    outline: inherit;
+    cursor:pointer;
+
+}
+
+button.choice:hover {
+    background-color:#f4a261;
+}
+
+button.choice:active {
+    background-color:#be7f4b;
+    transform: translateY(4px) ;
+}
