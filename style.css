@@ -16,6 +16,7 @@ body {
     align-items: center;  
     justify-content: center;
     padding-bottom: 24px;
+    flex-shrink: 0;
 
 }
 
@@ -24,6 +25,7 @@ body {
 
 .choicebutton {
     margin: 12px;
+
 }
 
 button.choice {
@@ -32,6 +34,7 @@ button.choice {
     padding: 0;
     outline: inherit;
     cursor:pointer;
+    border-radius: 100%;
 
 }
 
@@ -56,3 +59,4 @@ button.choice:active {
     align-items: center;
 
 }
+
