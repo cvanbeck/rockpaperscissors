@@ -1,3 +1,4 @@
+
 function computerPlay() {
     roll = Math.random();
     if (roll < (1 / 3)) {
@@ -62,3 +63,8 @@ function playFive() {
     
      }
 }
+
+const chooseHandPlease = document.querySelector(".choice");
+chooseHandPlease.addEventListener("click", () => {
+    alert("I should do the lesson proeprly :)")
+})
