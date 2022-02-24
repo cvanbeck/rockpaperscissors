@@ -37,12 +37,15 @@ let gamesPlayed = 0;
 let gamesWon = 0;
 let gamesLost = 0;
 
+const battleTex = document.querySelector(".battletext")
+
 const chooseRock = document.querySelector("#rock");
+
 chooseRock.addEventListener("click", () => {
     let playerChoice = "rock";
-    playRound(playerChoice);
-    console.log("won:" + gamesWon)
-    console.log("lost:" + gamesLost)
+    let result = playRound(playerChoice);
+    console.log("won: " + gamesWon)
+    console.log("lost: " + gamesLost)
     giveScoreboard()
     winChecker();
 
@@ -52,8 +55,9 @@ const choosePaper = document.querySelector("#paper");
 choosePaper.addEventListener("click", () => {
     let playerChoice = "paper";
     playRound(playerChoice);
-    console.log(gamesWon)
-    console.log(gamesLost)
+    console.log("won: " + gamesWon)
+    console.log("lost: " + gamesLost)
+    giveScoreboard()
     winChecker();
 })
 
@@ -61,8 +65,9 @@ const chooseScissors = document.querySelector("#scissors");
 chooseScissors.addEventListener("click", () => {
     let playerChoice = "scissors";
     playRound(playerChoice);
-    console.log(gamesWon)
-    console.log(gamesLost)
+    console.log("won: " + gamesWon)
+    console.log("lost: " + gamesLost)
+    giveScoreboard()
     winChecker();
 })
 
@@ -74,7 +79,6 @@ function winChecker() {
     }
     else if (gamesLost == 3) {
         console.log("Bad luck! You lost to a robot")
-        setTimeout(clearScoreboard(), [ 1000])
         gamesLost = 0;
         gamesWon = 0
     }

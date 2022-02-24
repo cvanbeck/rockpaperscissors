@@ -5,6 +5,9 @@ body {
     min-height: 100vh;
     justify-content: space-between;
     overflow-y: hidden;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    
 }
 
 
