@@ -15,11 +15,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;  
+
     padding-bottom: 24px;
     flex-shrink: 0;
 
 }
-
+sav
  .choice-bot {
 } 
 
@@ -75,6 +76,7 @@ button.choice:active {
 }
 .playerScore {
     background-color: #6B5CA5;
+;
 }
 
 /* .test {
