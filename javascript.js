@@ -16,8 +16,8 @@ function computerPlay() {
 }
 
 function playRound(player, cpu) {
-   /* cpuSelection = computerPlay();
-    console.log(cpuSelection) */
+    /* cpuSelection = computerPlay();
+     console.log(cpuSelection) */
     if (player == cpu) {
         console.log("draw");
         return "draw"
@@ -41,6 +41,7 @@ let gamesWon = 0;
 let gamesLost = 0;
 
 const chooseRock = document.querySelector("#rock");
+
 chooseRock.addEventListener("click", () => {
     let playerChoice = "rock";
     let cpuSelection = computerPlay();
@@ -51,8 +52,15 @@ chooseRock.addEventListener("click", () => {
     console.log("lost: " + gamesLost)
     giveScoreboard()
     winChecker();
-
 })
+chooseRock.addEventListener("mouseover", () => {
+    playerHand.textContent = "ROCK?";
+    cpuHand.textContent = " ";
+    clearScoreboard();
+
+
+});
+
 
 const choosePaper = document.querySelector("#paper");
 choosePaper.addEventListener("click", () => {
@@ -66,6 +74,13 @@ choosePaper.addEventListener("click", () => {
     giveScoreboard()
     winChecker();
 })
+choosePaper.addEventListener("mouseover", () => {
+    playerHand.textContent = "PAPER?";
+    cpuHand.textContent = " "
+    clearScoreboard()
+
+});
+
 
 const chooseScissors = document.querySelector("#scissors");
 chooseScissors.addEventListener("click", () => {
@@ -80,29 +95,36 @@ chooseScissors.addEventListener("click", () => {
     winChecker();
 
 })
+chooseScissors.addEventListener("mouseover", () => {
+    playerHand.textContent = "SCISSORS?";
+    cpuHand.textContent = " "
+    clearScoreboard()
 
-function winChecker() {
+});
+
+
+/* function winChecker() {
     if (gamesWon == 3) {
         console.log("Congrats! You beat the computer!")
         gamesLost = 0;
-        gamesWon = 0
+        gamesWon = 0;
     }
     else if (gamesLost == 3) {
         console.log("Bad luck! You lost to a robot")
         gamesLost = 0;
         gamesWon = 0
     }
-}
+} */
 
 
 
 const player1 = document.querySelector(".playerNoScore1")
 const player2 = document.querySelector(".playerNoScore2")
-const player3 = document.querySelector(".playerNoScore3") 
+const player3 = document.querySelector(".playerNoScore3")
 
 const cpu1 = document.querySelector(".cpuNoScore1")
 const cpu2 = document.querySelector(".cpuNoScore2")
-const cpu3 = document.querySelector(".cpuNoScore3") 
+const cpu3 = document.querySelector(".cpuNoScore3")
 
 function givePlayerScoreboard() {
     if (gamesWon == 1) {
@@ -142,7 +164,10 @@ function clearScoreboard() {
         cpu2.classList.remove("playerScore");
         cpu3.classList.remove("playerScore");
         console.log("hello world")
-    } 
+        gamesLost = 0;
+        gamesWon = 0;
+        
+    }
 }
 
 const playerHand = document.querySelector(".field-player")
@@ -155,12 +180,15 @@ function displayHand(playerchoice, cpuchoice) {
 const battleText = document.querySelector(".actual-field")
 function changeBattleText(result, playerHand, cpuHand) {
     if (result == "win") {
-        battleText.textContent = `YOU WIN! ${playerHand.toUpperCase() } BEATS ${cpuHand.toUpperCase()}!`
+        battleText.textContent = ""
+        battleText.textContent = `YOU WIN! ${playerHand.toUpperCase()} BEATS ${cpuHand.toUpperCase()}!`
     }
     else if (result == "lose") {
+        battleText.textContent = " "
         battleText.textContent = `UNLUCKY! ${cpuHand.toUpperCase()} BEATS ${playerHand.toUpperCase()}`
     }
     else if (result == "draw") {
+        battleText.textContent = " "
         battleText.textContent = "IT'S A DRAW, PLAY AGAIN."
     }
 }
