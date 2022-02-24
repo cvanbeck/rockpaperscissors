@@ -51,7 +51,7 @@ chooseRock.addEventListener("click", () => {
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
-    winChecker();
+     /* winChecker(); */
 })
 chooseRock.addEventListener("mouseover", () => {
     playerHand.textContent = "ROCK?";
@@ -72,7 +72,7 @@ choosePaper.addEventListener("click", () => {
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
-    winChecker();
+     /* winChecker(); */
 })
 choosePaper.addEventListener("mouseover", () => {
     playerHand.textContent = "PAPER?";
@@ -92,7 +92,7 @@ chooseScissors.addEventListener("click", () => {
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
-    winChecker();
+    /* winChecker(); */
 
 })
 chooseScissors.addEventListener("mouseover", () => {
