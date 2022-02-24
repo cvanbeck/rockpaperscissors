@@ -1,5 +1,5 @@
 body {
-    background-color: #e76f51;
+    background-color: #71A9F7;
     display:flex;
     flex-direction: column;
     min-height: 100vh;
@@ -39,11 +39,11 @@ button.choice {
 }
 
 button.choice:hover {
-    background-color:#f4a261;
+    background-color:#C6D8FF;
 }
 
 button.choice:active {
-    background-color:#be7f4b;
+    background-color:#a8b7d6;
     transform: translateY(4px) ;
 }
 
@@ -51,12 +51,32 @@ button.choice:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
 }
 .battle-text {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: space-around;
+    padding-top: 10px; 
 }
 
+.scoreboard {
+    height: 28px;
+    width: 28px;;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 3px;
+    background-color: #C6D8FF
+}
+
+.playerNoScore, .cpuNoScore {
+    background-color: #C6D8FF
+
+}
+.playerScore {
+    background-color: #6B5CA5;
+}
+
+/* .test {
+    background-color: #6B5CA5
+} */
