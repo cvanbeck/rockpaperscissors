@@ -105,14 +105,14 @@ chooseScissors.addEventListener("mouseover", () => {
 
 /* function winChecker() {
     if (gamesWon == 3) {
-        console.log("Congrats! You beat the computer!")
-        gamesLost = 0;
-        gamesWon = 0;
+        battleText.textContent = "CONGRATULATIONS! YOU HAVE WON"
+        playerHand.textContent = " "
+        cpuHand.textContent = " "
     }
     else if (gamesLost == 3) {
-        console.log("Bad luck! You lost to a robot")
-        gamesLost = 0;
-        gamesWon = 0
+        battleText.textContent = "you really just lost to a robot?"
+        playerHand.textContent = " "
+        cpuHand.textContent = " "
     }
 } */
 
@@ -157,6 +157,7 @@ function giveScoreboard() {
 
 function clearScoreboard() {
     if (gamesLost == 3 || gamesWon == 3) {
+        battleText.textContent = "ROCK PAPER OR SCISSORS?"
         player1.classList.remove("playerScore");
         player2.classList.remove("playerScore");
         player3.classList.remove("playerScore");
