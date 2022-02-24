@@ -46,6 +46,7 @@ chooseRock.addEventListener("click", () => {
     let cpuSelection = computerPlay();
     let result = playRound(playerChoice, cpuSelection);
     displayHand(playerChoice, cpuSelection);
+    changeBattleText(result, playerChoice, cpuSelection)
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
@@ -59,6 +60,7 @@ choosePaper.addEventListener("click", () => {
     let cpuSelection = computerPlay();
     let result = playRound(playerChoice, cpuSelection);
     displayHand(playerChoice, cpuSelection);
+    changeBattleText(result, playerChoice, cpuSelection)
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
@@ -71,10 +73,12 @@ chooseScissors.addEventListener("click", () => {
     let cpuSelection = computerPlay();
     let result = playRound(playerChoice, cpuSelection);
     displayHand(playerChoice, cpuSelection);
+    changeBattleText(result, playerChoice, cpuSelection)
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
     winChecker();
+
 })
 
 function winChecker() {
@@ -146,4 +150,17 @@ const cpuHand = document.querySelector(".field-cpu")
 function displayHand(playerchoice, cpuchoice) {
     playerHand.textContent = `YOU CHOSE: ${playerchoice.toUpperCase()}`
     cpuHand.textContent = `CPU CHOSE: ${cpuchoice.toUpperCase()}`
+}
+
+const battleText = document.querySelector(".actual-field")
+function changeBattleText(result, playerHand, cpuHand) {
+    if (result == "win") {
+        battleText.textContent = `YOU WIN! ${playerHand.toUpperCase() } BEATS ${cpuHand.toUpperCase()}!`
+    }
+    else if (result == "lose") {
+        battleText.textContent = `UNLUCKY! ${cpuHand.toUpperCase()} BEATS ${playerHand.toUpperCase()}`
+    }
+    else if (result == "draw") {
+        battleText.textContent = "IT'S A DRAW, PLAY AGAIN."
+    }
 }
