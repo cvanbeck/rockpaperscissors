@@ -50,7 +50,7 @@ button.choice:active {
 
 .battlefield { 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;;
     align-items: center;
     
 
@@ -59,6 +59,14 @@ button.choice:active {
     display: flex;
     justify-content: space-around;
     padding-top: 10px; 
+}
+
+.actual-field, .field-player, .field-cpu{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
 .scoreboard {

@@ -2,31 +2,34 @@ function computerPlay() {
     roll = Math.random();
     if (roll < (1 / 3)) {
         hand = "rock";
+        console.log("rock")
     }
     else if (roll >= (1 / 3) && roll < (2 / 3)) {
         hand = "paper";
+        console.log("paper")
     }
     else if (roll >= (2 / 3)) {
         hand = "scissors";
+        console.log("scissors")
     }
     return hand
 }
 
-function playRound(player) {
-    cpuSelection = computerPlay();
-    console.log(cpuSelection)
-    if (player == cpuSelection) {
+function playRound(player, cpu) {
+   /* cpuSelection = computerPlay();
+    console.log(cpuSelection) */
+    if (player == cpu) {
         console.log("draw");
         return "draw"
     }
-    else if ((player == "rock" && cpuSelection == "paper") || (player == "paper" && cpuSelection == "scissors")
-        || (player == "scissors" && cpuSelection == "rock")) {
+    else if ((player == "rock" && cpu == "paper") || (player == "paper" && cpu == "scissors")
+        || (player == "scissors" && cpu == "rock")) {
         console.log("lose");
         ++gamesLost
         return "lose"
     }
-    else if ((player == "rock" && cpuSelection == "scissors") || (player == "paper" && cpuSelection == "rock")
-        || (player == "scissors" && cpuSelection == "paper")) {
+    else if ((player == "rock" && cpu == "scissors") || (player == "paper" && cpu == "rock")
+        || (player == "scissors" && cpu == "paper")) {
         console.log("win")
         ++gamesWon
         return "win"
@@ -37,13 +40,12 @@ let gamesPlayed = 0;
 let gamesWon = 0;
 let gamesLost = 0;
 
-const battleTex = document.querySelector(".battletext")
-
 const chooseRock = document.querySelector("#rock");
-
 chooseRock.addEventListener("click", () => {
     let playerChoice = "rock";
-    let result = playRound(playerChoice);
+    let cpuSelection = computerPlay();
+    let result = playRound(playerChoice, cpuSelection);
+    displayHand(playerChoice, cpuSelection);
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
@@ -54,7 +56,9 @@ chooseRock.addEventListener("click", () => {
 const choosePaper = document.querySelector("#paper");
 choosePaper.addEventListener("click", () => {
     let playerChoice = "paper";
-    playRound(playerChoice);
+    let cpuSelection = computerPlay();
+    let result = playRound(playerChoice, cpuSelection);
+    displayHand(playerChoice, cpuSelection);
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
@@ -64,7 +68,9 @@ choosePaper.addEventListener("click", () => {
 const chooseScissors = document.querySelector("#scissors");
 chooseScissors.addEventListener("click", () => {
     let playerChoice = "scissors";
-    playRound(playerChoice);
+    let cpuSelection = computerPlay();
+    let result = playRound(playerChoice, cpuSelection);
+    displayHand(playerChoice, cpuSelection);
     console.log("won: " + gamesWon)
     console.log("lost: " + gamesLost)
     giveScoreboard()
@@ -133,4 +139,11 @@ function clearScoreboard() {
         cpu3.classList.remove("playerScore");
         console.log("hello world")
     } 
+}
+
+const playerHand = document.querySelector(".field-player")
+const cpuHand = document.querySelector(".field-cpu")
+function displayHand(playerchoice, cpuchoice) {
+    playerHand.textContent = `YOU CHOSE: ${playerchoice.toUpperCase()}`
+    cpuHand.textContent = `CPU CHOSE: ${cpuchoice.toUpperCase()}`
 }
